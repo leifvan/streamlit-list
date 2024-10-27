@@ -50,6 +50,9 @@ text_input = col2.chat_input(
     max_chars=1024,
 )
 
-if name_input and text_input:
-    db.add_item(name_input or name_input, text_input)
-    st.rerun()
+if text_input:
+    if not name_input:
+        st.error("Fehler: Du musst deinen Namen eingeben, um etwas zur Liste hinzuzufügen.")
+    else:
+        db.add_item(name_input or name_input, text_input)
+        st.rerun()
