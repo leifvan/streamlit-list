@@ -6,12 +6,7 @@ db = Database()
 st.title("100. Geburtstag")
 st.write("Was ich mitbringe")
 
-# if st.query_params["disable_reload"]:
-#     run_every = None
-# else:
-#     run_every = "10s"
-
-# @st.fragment(run_every="10s")
+@st.fragment(run_every="10s")
 def data_container():
     with st.spinner("Lade Daten..."):
         df = db.get_items()
